@@ -11,8 +11,9 @@ router.get('/returnTicker', async (ctx, next) => {
     var url = 'https://poloniex.com/public?command=returnTicker';
     //var url = 'http://api.chbtc.com/data/v1/ticker?currency=bts';
     var data = await  poloniexService.get(url);
+    console.log(data);
     var outdata ={
-        code:data.code,
+        code:data.statusCode,
         body:data.body,
     }
     ctx.body = outdata;
